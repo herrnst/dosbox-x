@@ -7845,7 +7845,6 @@ void IDE_Init();
 void NE2K_Init();
 void FDC_Primary_Init();
 void AUTOEXEC_Init();
-void DOS_InitClock();
 
 #if defined(WIN32)
 // NTS: I intend to add code that not only indicates High DPI awareness but also queries the monitor DPI
@@ -7939,9 +7938,6 @@ bool VM_Boot_DOSBox_Kernel() {
         if (IS_PC98_ARCH) update_pc98_function_row(1);
 
         DispatchVMEvent(VM_EVENT_DOS_INIT_KERNEL_READY); // <- kernel is ready
-
-        /* Date/time */
-        DOS_InitClock();
 
 #if !defined(OSFREE)
         /* keyboard mapping, at this point in CONFIG.SYS parsing, right? */
